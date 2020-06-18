@@ -1,0 +1,19 @@
+
+
+
+  import React,{Component} from 'react';
+  import ReactDOM from 'react-dom'; 
+  import theImage from './alluarjun.jpg';
+  import './index.css';
+  class Employee extends Component{
+     render()
+     {
+       return(
+         <div>
+           <img src={theImage} className="img"/>
+         </div>
+       )
+     }
+  }
+  const element=<Employee></Employee>
+   ReactDOM.render(element,document.getElementById("root"));
