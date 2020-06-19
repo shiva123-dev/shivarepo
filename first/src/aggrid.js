@@ -1,24 +1,11 @@
-
 'use strict';
+
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { AgGridReact } from '@ag-grid-community/react';
 import { AllModules } from '@ag-grid-enterprise/all-modules';
 import '@ag-grid-community/all-modules/dist/styles/ag-grid.css';
 import '@ag-grid-community/all-modules/dist/styles/ag-theme-alpine.css';
-
-
-
-
-// import React, { Component } from 'react';
-  
-// import { AgGridReact } from 'ag-grid-react';
-// import 'ag-grid-community/dist/styles/ag-grid.css';
-// import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-
-
-
-
 
 
 var Data=[
@@ -2640,13 +2627,10 @@ var Data=[
 
 ];
 
-    
 var x=[];
+class GridExample extends Component {
 
-class Aggrid extends Component 
-{
-    
-returndata ()
+  returndata ()
 {
    
 for(let i=0; i<Data[0].hits.hits.length;i++)
@@ -2656,13 +2640,12 @@ for(let i=0; i<Data[0].hits.hits.length;i++)
  }
 
 }
-    constructor(props)
-     {
-      super(props);
-      
-      
-      this.state = {
-        columnDefs: [
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      modules: AllModules,
+     columnDefs: [
           
           { headerName: "date", field: "date",sortable:true,filter: true },
           { headerName: "name", field: "name" ,sortable:true,filter: true},
@@ -2671,34 +2654,53 @@ for(let i=0; i<Data[0].hits.hits.length;i++)
           { headerName: "score", field: "score" ,sortable:true,filter: true}],
 
         rowData:x
-      }  
-    }
-    onGridReady = params => 
-    {
-        this.gridApi = params.api;
-        this.gridColumnApi = params.columnApi;
-    }
-    onBtExport = () =>
-     {
-        this.gridApi.exportDataAsExcel({});
-     }
-  
-    render() 
-    {
-
-      return (
-   this.returndata(),
-        <div className="ag-theme-alpine" style={{height: '400px', width: '900px'}}>
-          <AgGridReact
-          
-              columnDefs={this.state.columnDefs}
-              rowData={this.state.rowData}>  
-                
-          </AgGridReact>
-          <button onclick="onBtExport()">Export to Excel</button>
-        </div>
-
-      );
-    }
+     
+    };
   }
-  export default Aggrid
+
+  onGridReady = params => {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+  };
+
+  onBtExport = () => {
+    this.gridApi.exportDataAsExcel({});
+  };
+
+  render() {
+    return (
+   this.returndata(),
+  <div style={{ width: '100%', height: '100%' }}>
+        <div className="example-wrapper">
+          <div className="example-header">
+            <label>
+              <button onClick={() => this.onBtExport()}>Export to Excel</button>
+            </label>
+          </div>
+
+          <div
+            id="myGrid"
+            style={{
+              height: '100%',
+              width: '100%',
+            }}
+            className="ag-theme-alpine" style={{height: '400px', width: '900px'}}
+          >
+            <AgGridReact
+              modules={this.state.modules}
+              columnDefs={this.state.columnDefs}
+              rowData={this.state.rowData}
+               onGridReady={this.onGridReady}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+
+
+render(<GridExample></GridExample>, document.querySelector('#root'));
+
+export default GridExample
