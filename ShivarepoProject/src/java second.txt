@@ -1,0 +1,15 @@
+Program-2:
+
+public class Twentysisxth {
+
+	public static void main(String[] args) {
+		 String firstName="Shivaprasad";
+		 String middleName=" ";
+		 String lastName="Samal";
+		 
+		 System.out.print("Full name : "+firstName+""+middleName+""+lastName+"  ");
+		 
+	}
+}
+o/p:
+Full name : Shivaprasad Samal 
