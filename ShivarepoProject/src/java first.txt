@@ -1,0 +1,13 @@
+public class Twentysisxth {
+
+	public static void main(String[] args) {
+		 String name="Shivaprasad";
+		 int age=24;
+		 double annualPay=10000000;
+		 
+		 System.out.print("My name is "+name+" ,my age is "+age+", and i hope to earn "+annualPay+" per year ");
+		 
+	}
+}
+o/p:
+My name is Shivaprasad ,my age is 24, and i hope to earn 1.0E7 per year 
