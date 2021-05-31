@@ -1,0 +1,27 @@
+program-3:
+
+public class Twentysisxth {
+
+	public static void main(String[] args) {
+		 String name="Shivaprasad samal";
+		String street="Durga chhaka";
+		String city="Dhenkanal";
+		String state="Odisha";
+		String zip="7590239-1";
+		String mobileno="7008096323";
+		String branch="Electrical";
+		 
+		 System.out.println("Details here");
+		 System.out.print(name + " \n " +  street  + "\n" +  city + "\n" + state + "\n" + zip + "\n" + mobileno + "\n" + branch );
+		 
+	}
+}
+
+o/p:Details here
+Shivaprasad samal 
+ Durga chhaka
+Dhenkanal
+Odisha
+7590239-1
+7008096323
+Electrical
